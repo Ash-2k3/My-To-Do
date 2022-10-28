@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 
 class AddTodo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,7 @@ class AddTodo : AppCompatActivity() {
                 TodoList.setData(etvTask.text.toString())
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
+                Animatoo.animateSwipeRight(this)
                 finish()
             }
             else{
@@ -26,5 +28,10 @@ class AddTodo : AppCompatActivity() {
             }
 
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Animatoo.animateSlideRight(this)
     }
 }

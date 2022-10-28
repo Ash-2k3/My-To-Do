@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         addBtn.setOnClickListener{
             val intent = Intent(this,AddTodo::class.java)
            startActivity(intent)
+            Animatoo.animateSlideRight(this)
         }
     }
 
