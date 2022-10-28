@@ -1,6 +1,6 @@
 package com.example.mytodo
 
-import android.view.View
+
 
 object TodoList {
     var todoList = mutableListOf<Todo>()
@@ -13,10 +13,9 @@ object TodoList {
         return todoList
     }
 
-    fun deleteDoneTask(){
-        todoList.removeAll {
-            Todo -> Todo.isDone
-        }
-    }
-
 }
+
+
+
+
+

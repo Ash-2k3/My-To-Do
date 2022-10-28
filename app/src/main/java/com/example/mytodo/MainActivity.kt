@@ -3,7 +3,10 @@ package com.example.mytodo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -23,8 +26,29 @@ class MainActivity : AppCompatActivity() {
 
         addBtn.setOnClickListener{
             val intent = Intent(this,AddTodo::class.java)
-            startActivity(intent)
-            finish()
+           startActivity(intent)
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+       menuInflater.inflate(R.menu.delete_button,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+
+            R.id.btn_delete_item -> {
+                Toast.makeText(this,"Delete Btn Triggered",Toast.LENGTH_SHORT).show()
+                 todoAdapter.deleteDoneTask()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+
+        }
+
+    }
+
+
+
 }

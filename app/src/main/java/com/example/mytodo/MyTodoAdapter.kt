@@ -10,24 +10,33 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyTodoAdapter(
     private val todos: MutableList<Todo>
-) : RecyclerView.Adapter<TodoViewHolder>() {
+) : RecyclerView.Adapter<MyTodoAdapter.TodoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
 
-        return TodoViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_todo,parent,false))
+        return TodoViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-       val currTodo = todos[position]
+        val currTodo = todos[position]
         holder.itemView.apply {
             findViewById<TextView>(R.id.tv_todo).text = currTodo.todo
             findViewById<CheckBox>(R.id.cb_check).isChecked = currTodo.isDone
         }
     }
 
+
     override fun getItemCount(): Int {
         return todos.size
     }
+
+    fun deleteDoneTask() {
+        TodoList.todoList.clear()
+        notifyDataSetChanged()
+    }
+
+    class TodoViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview)
 }
 
-class TodoViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview)
