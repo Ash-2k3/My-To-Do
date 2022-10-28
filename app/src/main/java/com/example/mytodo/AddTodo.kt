@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 
 class AddTodo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,9 @@ class AddTodo : AppCompatActivity() {
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
                 finish()
+            }
+            else{
+                Toast.makeText(this,"Enter Valid Text",Toast.LENGTH_SHORT).show()
             }
 
         }
