@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
@@ -16,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var todoAdapter: MyTodoAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_MyToDo)
         setContentView(R.layout.activity_main)
 
         val myRv = findViewById<RecyclerView>(R.id.rv_list_todo)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         return when(item.itemId) {
 
             R.id.btn_delete_item -> {
-                Toast.makeText(this,"Delete Btn Triggered",Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this,"Delete Btn Triggered",Toast.LENGTH_SHORT).show()
                  todoAdapter.deleteDoneTask()
                 return true
             }

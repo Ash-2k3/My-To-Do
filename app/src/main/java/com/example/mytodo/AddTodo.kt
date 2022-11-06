@@ -11,6 +11,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo
 class AddTodo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_MyToDo)
         setContentView(R.layout.activity_add_todo)
         val etvTask : EditText = findViewById(R.id.etv_todo)
         val doneBtn : View = findViewById(R.id.fab_done)
