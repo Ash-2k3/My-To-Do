@@ -1,5 +1,6 @@
 package com.example.mytodo
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity() {
            startActivity(intent)
             Animatoo.animateSlideRight(this)
         }
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -42,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
             R.id.btn_delete_item -> {
 //                Toast.makeText(this,"Delete Btn Triggered",Toast.LENGTH_SHORT).show()
-                 todoAdapter.deleteDoneTask()
+                 todoAdapter.deleteTodo()
                 return true
             }
             else -> super.onOptionsItemSelected(item)

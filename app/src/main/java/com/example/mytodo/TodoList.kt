@@ -1,7 +1,5 @@
 package com.example.mytodo
 
-
-
 object TodoList {
     var todoList = mutableListOf<Todo>()
 
@@ -12,6 +10,8 @@ object TodoList {
     fun getEntireList(): MutableList<Todo> {
         return todoList
     }
+
+
 
 }
 

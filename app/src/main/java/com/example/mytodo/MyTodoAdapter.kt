@@ -1,4 +1,10 @@
+
 package com.example.mytodo
+
+import com.example.mytodo.R
+
+import com.example.mytodo.Todo
+
 
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +31,21 @@ class MyTodoAdapter(
             findViewById<TextView>(R.id.tv_todo).text = currTodo.todo
             findViewById<CheckBox>(R.id.cb_check).isChecked = currTodo.isDone
         }
+        holder.itemView.findViewById<CheckBox>(R.id.cb_check).setOnClickListener{
+            currTodo.isDone = true
+        }
+
+        if(currTodo.isDone)
+        {
+            todos.remove(currTodo)
+        }
+    }
+
+
+
+    fun deleteTodo(){
+        TodoList.todoList.removeIf{ it.isDone }
+        notifyDataSetChanged()
     }
 
 
@@ -32,11 +53,8 @@ class MyTodoAdapter(
         return todos.size
     }
 
-    fun deleteDoneTask() {
-        TodoList.todoList.clear()
-        notifyDataSetChanged()
-    }
 
-    class TodoViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview)
+
+     class TodoViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview)
 }
 
