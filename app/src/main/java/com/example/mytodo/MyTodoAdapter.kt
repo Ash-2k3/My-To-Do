@@ -32,7 +32,7 @@ class MyTodoAdapter(
             findViewById<CheckBox>(R.id.cb_check).isChecked = currTodo.isDone
         }
         holder.itemView.findViewById<CheckBox>(R.id.cb_check).setOnClickListener{
-            currTodo.isDone = true
+            currTodo.isDone = !currTodo.isDone
         }
 
         if(currTodo.isDone)
